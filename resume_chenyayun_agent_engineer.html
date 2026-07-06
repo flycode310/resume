@@ -64,6 +64,18 @@
   .intent { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; font-size: 13px; }
   .intent .label { color: var(--text-muted); font-weight: 600; }
 
+  /* Education */
+  .edu-item { font-size: 12px; margin-bottom: 3px; }
+  .edu-item strong { color: var(--primary); }
+
+  /* Work history */
+  .work-item { margin-bottom: 8px; font-size: 12px; }
+  .work-head { font-weight: 700; color: var(--primary); margin-bottom: 2px; }
+  .work-head .time { font-weight: 400; color: var(--text-muted); margin-left: 6px; font-size: 11px; }
+  .work-item ul { list-style: none; padding-left: 0; }
+  .work-item ul li { padding-left: 14px; position: relative; margin-bottom: 2px; font-size: 12px; }
+  .work-item ul li::before { content: "●"; position: absolute; left: 0; color: var(--accent); font-size: 6px; top: 6px; }
+
   /* Tech stack */
   .tech-group { margin-bottom: 6px; font-size: 12px; line-height: 1.55; }
   .tech-group .level {
@@ -118,39 +130,50 @@
     font-weight: 500;
   }
 
-  /* Work history */
-  .work-item { margin-bottom: 8px; font-size: 12px; }
-  .work-head { font-weight: 700; color: var(--primary); margin-bottom: 2px; }
-  .work-head .time { font-weight: 400; color: var(--text-muted); margin-left: 6px; font-size: 11px; }
-  .work-item ul { list-style: none; padding-left: 0; }
-  .work-item ul li { padding-left: 14px; position: relative; margin-bottom: 2px; font-size: 12px; }
-  .work-item ul li::before { content: "●"; position: absolute; left: 0; color: var(--accent); font-size: 6px; top: 6px; }
-
-  /* Education */
-  .edu-item { font-size: 12px; margin-bottom: 3px; }
-  .edu-item strong { color: var(--primary); }
-
-  /* Bonus */
-  .bonus-list { list-style: none; padding-left: 0; }
-  .bonus-list li { font-size: 12px; padding-left: 14px; position: relative; margin-bottom: 3px; }
-  .bonus-list li::before { content: "★"; position: absolute; left: 0; color: #f59e0b; font-size: 10px; top: 3px; }
-
   /* Placeholder highlight */
   .placeholder { color: var(--text-muted); font-style: italic; font-size: 12px; }
 
   /* Print */
-  @page { size: A4; margin: 10mm 12mm; }
+  @page { size: A4; margin: 7mm 9mm; }
   @media print {
-    body { background: #fff; font-size: 10.5px; line-height: 1.45; }
+    body { background: #fff; font-size: 9.5px; line-height: 1.35; }
     .page { margin: 0; box-shadow: none; padding: 0; max-width: 100%; border-radius: 0; }
-    section { margin-bottom: 10px; page-break-inside: avoid; }
-    .project { margin-bottom: 8px; padding-bottom: 6px; page-break-inside: avoid; }
-    .header { margin-bottom: 8px; padding-bottom: 6px; }
-    .project-section { margin-top: 3px; }
-    .project ul li { margin-bottom: 1px; }
-    .tech-group { margin-bottom: 4px; }
-    .tech-group li { margin-bottom: 1px; }
-    .work-item { margin-bottom: 5px; }
+    section { margin-bottom: 5px; }
+    section h2 { margin-bottom: 3px; font-size: 12px; padding-left: 6px; }
+    .header { margin-bottom: 4px; padding-bottom: 3px; }
+    .header h1 { font-size: 20px; }
+    .header .tagline { font-size: 11px; margin-top: 2px; }
+    .header .contact { margin-top: 3px; font-size: 10px; }
+    .intent { font-size: 10px; gap: 2px 10px; }
+
+    .tech-group { margin-bottom: 2px; line-height: 1.4; font-size: 10.5px; }
+    .tech-group li { margin-bottom: 0; line-height: 1.4; }
+    .tech-group .level { font-size: 9px; padding: 0 5px; margin-right: 4px; }
+
+    .project { margin-bottom: 5px; padding-bottom: 3px; page-break-inside: avoid; }
+    .project-head { margin-bottom: 2px; gap: 4px; }
+    .project-title { font-size: 11.5px; }
+    .project-meta { font-size: 10px; }
+    .project-section { margin-top: 2px; font-size: 10px; }
+    .project-section-title { font-size: 10px; margin-right: 3px; }
+    .project-bg { padding: 3px 7px; margin-top: 2px; font-size: 10px; line-height: 1.4; }
+    .project ul { margin-top: 1px; }
+    .project ul li { margin-bottom: 0; line-height: 1.4; font-size: 10px; padding-left: 12px; }
+    .project ul li::before { top: 5px; }
+    .project-tags { margin-top: 2px; }
+    .tag { padding: 0 4px; font-size: 8.5px; margin-bottom: 1px; }
+
+    .work-item { margin-bottom: 3px; font-size: 10px; }
+    .work-head { margin-bottom: 1px; font-size: 10.5px; }
+    .work-head .time { font-size: 9.5px; margin-left: 4px; }
+    .work-item ul li { margin-bottom: 0; font-size: 10px; padding-left: 12px; line-height: 1.4; }
+
+    .edu-item { font-size: 10px; margin-bottom: 1px; }
+
+    .bonus-list { list-style: none; padding-left: 0; }
+    .bonus-list li { font-size: 10px; padding-left: 14px; position: relative; margin-bottom: 2px; line-height: 1.4; }
+    .bonus-list li::before { content: "★"; position: absolute; left: 0; color: #f59e0b; font-size: 9px; top: 2px; }
+    .bonus-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 16px; }
   }
 
   @media (max-width: 768px) {
@@ -179,6 +202,49 @@
       <span class="label">目标岗位：</span><span>Agent 开发工程师 / LLM 应用后端工程师（业务落地 / Agent 平台方向）</span>
       <span class="label">期望城市：</span><span>北京</span>
       <span class="label">到岗时间：</span><span>1 个月内</span>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section>
+    <h2>教育背景</h2>
+    <div class="edu-item"><strong>北京邮电大学</strong> | 计算机科学与技术 | 硕士 | 2013.09 - 2016.04</div>
+    <div class="edu-item"><strong>安徽工业大学</strong> | 网络工程 | 本科 | 2008.09 - 2012.06</div>
+  </section>
+
+  <!-- Work Experience -->
+  <section>
+    <h2>工作经历</h2>
+
+    <div class="work-item">
+      <div class="work-head">滴滴 | 资深研发工程师 · 司机 FTO / 架构治理 RDO <span class="time">2024.01 - 至今</span></div>
+      <ul>
+        <li>主导鸿鹄 SaaS 司机稳定性 / 安全 / 费用三大场景治理，跨 30+ 团队架构升级</li>
+        <li>主导司机域 DDD 领域化改造与 AI-native 研发提效 Agent 落地（详见项目一）</li>
+        <li>负责司机方向团队管理与人员培养</li>
+      </ul>
+    </div>
+
+    <div class="work-item">
+      <div class="work-head">滴滴 | 资深研发工程师 · 核心研发 <span class="time">2021.01 - 2023.12</span></div>
+      <ul>
+        <li>主导鸿鹄 SaaS 从 0 到 1 建设与撮合流程重构（详见项目三）</li>
+        <li>主导鸿鹄 SaaS 支持小猪自营主流程改造</li>
+      </ul>
+    </div>
+
+    <div class="work-item">
+      <div class="work-head">滴滴 | 高级研发工程师 <span class="time">2018.05 - 2020.12</span></div>
+      <ul>
+        <li>主导顺风车日常管控迭代与开发平台建设</li>
+      </ul>
+    </div>
+
+    <div class="work-item">
+      <div class="work-head">百度外卖 | 高级研发工程师 <span class="time">2016.04 - 2018.04</span></div>
+      <ul>
+        <li>主导百度外卖配送系统日常迭代（Go / PHP）</li>
+      </ul>
     </div>
   </section>
 
@@ -338,18 +404,10 @@
       </div>
 
       <div class="project-section">
-        <span class="project-section-title">个人贡献</span>
+        <span class="project-section-title">个人贡献 / 成果</span>
         <ul>
-          <li>主导整体融合方案设计与推进，组织 10+ 人研发团队（Go 后端为主）</li>
-          <li>主导撮合核心流程代码重构</li>
-        </ul>
-      </div>
-
-      <div class="project-section">
-        <span class="project-section-title">项目成果</span>
-        <ul>
-          <li>业务迭代效率提升 <span class="placeholder">（占位待补充具体百分比）</span></li>
-          <li>完成司机融合，0 重大事故 <span class="placeholder">（占位待补充具体事故数）</span></li>
+          <li>主导整体融合方案与推进，组织 10+ 人研发团队</li>
+          <li>主导撮合核心流程代码重构，业务迭代效率提升 <span class="placeholder">（占位待补充）</span>，0 重大事故 <span class="placeholder">（占位待补充）</span></li>
         </ul>
       </div>
 
@@ -362,57 +420,24 @@
     </div>
   </section>
 
-  <!-- Work Experience -->
-  <section>
-    <h2>工作经历</h2>
-
-    <div class="work-item">
-      <div class="work-head">滴滴 | 资深研发工程师 · 司机 FTO / 架构治理 RDO <span class="time">2024.01 - 至今</span></div>
-      <ul>
-        <li>主导鸿鹄 SaaS 司机稳定性治理、安全场景治理、费用场景治理</li>
-        <li>主导鸿鹄 SaaS 司机顺风车、出租车多产品线架构升级</li>
-        <li>主导鸿鹄 SaaS 司机领域架构升级与 AI-native 提效落地</li>
-        <li>负责司机方向团队管理与人员培养</li>
-      </ul>
-    </div>
-
-    <div class="work-item">
-      <div class="work-head">滴滴 | 资深研发工程师 · 核心研发 <span class="time">2021.01 - 2023.12</span></div>
-      <ul>
-        <li>主导鸿鹄 SaaS 从 0 到 1 建设，主导撮合流程改造</li>
-        <li>主导鸿鹄 SaaS 支持小猪自营主流程改造</li>
-      </ul>
-    </div>
-
-    <div class="work-item">
-      <div class="work-head">滴滴 | 高级研发工程师 <span class="time">2018.05 - 2020.12</span></div>
-      <ul>
-        <li>主导顺风车日常管控迭代与开发平台建设</li>
-      </ul>
-    </div>
-
-    <div class="work-item">
-      <div class="work-head">百度外卖 | 高级研发工程师 <span class="time">2016.04 - 2018.04</span></div>
-      <ul>
-        <li>主导百度外卖配送日常迭代（Go / PHP）</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Education -->
-  <section>
-    <h2>教育背景</h2>
-    <div class="edu-item"><strong>北京邮电大学</strong> | 计算机科学与技术 | 硕士 | 2013.09 - 2016.04</div>
-    <div class="edu-item"><strong>安徽工业大学</strong> | 网络工程 | 本科 | 2008.09 - 2012.06</div>
-  </section>
-
   <!-- Bonus -->
   <section>
     <h2>加分项</h2>
     <ul class="bonus-list">
-      <li><strong>大厂规模化落地</strong>：亿级流量治理经验，可将大厂后端工程化能力迁移至 Agent 平台建设</li>
-      <li><strong>DDD 实战</strong>：8 模块领域化梳理经验，能把领域知识结构化输入 Agent，支撑高质量 RAG 与变更分析</li>
-      <li><strong>跨团队协调</strong>：单一项目协调 30+ 团队经验，适合 Agent 平台跨业务线推广场景</li>
+      <li><strong>大厂工程化能力迁移</strong>：亿级流量治理 / 高并发 / 可观测性建设经验，可直接赋能 Agent 平台的工程化（限流、降级、token 成本治理、链路追踪）</li>
+      <li><strong>领域知识结构化</strong>：8 模块 DDD 领域化梳理经验，能把业务知识结构化输入 Agent，支撑高质量 RAG、变更影响分析与代码评审</li>
+      <li><strong>跨团队推动力</strong>：单一项目协调 30+ 团队经验，适合 Agent 平台跨业务线推广与技术标准制定</li>
+      <li><strong>团队建设与培养</strong>：负责司机方向团队管理与人员培养，能从 0 到 1 搭建 Agent 工程团队</li>
+    </ul>
+  </section>
+
+  <!-- Tech Focus -->
+  <section>
+    <h2>近期关注方向</h2>
+    <ul class="bonus-list">
+      <li><strong>Agent 工程化落地</strong>：从 PoC 到生产环境的工程化挑战（评估 / 监控 / 降本 / 灰度）</li>
+      <li><strong>MCP 生态</strong>：基于 Model Context Protocol 自研企业内部工具集，降低 Agent 调用成本</li>
+      <li><strong>Multi-Agent 协作</strong>：Orchestrator + 子 Agent 分层模式在复杂业务场景的适用边界</li>
     </ul>
   </section>
 
