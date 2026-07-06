@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(open *)",
+      "Bash(/Applications/Google Chrome.app/Contents/MacOS/Google Chrome *)",
+      "Bash(/System/Library/Frameworks/Quartz.framework/Frameworks/QuickLookUI.framework/Resources/qlmanage -p /Users/chenyayun/work/resume/resume_chenyayun_agent_engineer.pdf)",
+      "Bash(mdls *)",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-sandbox --print-to-pdf=\"/Users/chenyayun/work/resume/resume_chenyayun_agent_engineer.pdf\" --print-to-pdf-no-header --no-pdf-header-footer \"file:///Users/chenyayun/work/resume/resume_chenyayun_agent_engineer.html\")"
+    ]
+  }
+}

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>陈亚运 - Agent 开发工程师 简历</title>
+<style>
+  :root {
+    --primary: #1f2937;
+    --accent: #2563eb;
+    --accent-light: #eff6ff;
+    --text: #1f2937;
+    --text-secondary: #4b5563;
+    --text-muted: #6b7280;
+    --border: #e5e7eb;
+    --bg: #ffffff;
+    --bg-soft: #f9fafb;
+    --tag-bg: #eff6ff;
+    --tag-text: #1d4ed8;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { font-size: 13px; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif;
+    color: var(--text);
+    background: #f3f4f6;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 920px;
+    margin: 16px auto;
+    background: var(--bg);
+    padding: 28px 40px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    border-radius: 4px;
+  }
+
+  /* Header */
+  .header { border-bottom: 2px solid var(--primary); padding-bottom: 12px; margin-bottom: 14px; }
+  .header h1 { font-size: 26px; font-weight: 700; letter-spacing: 1px; color: var(--primary); }
+  .header .tagline { font-size: 13px; color: var(--text-secondary); margin-top: 4px; font-weight: 500; }
+  .header .contact { margin-top: 6px; font-size: 12px; color: var(--text-muted); }
+  .header .contact span { margin-right: 14px; }
+
+  /* Section */
+  section { margin-bottom: 14px; }
+  section h2 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primary);
+    border-left: 3px solid var(--accent);
+    padding-left: 8px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* Job intent */
+  .intent { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; font-size: 13px; }
+  .intent .label { color: var(--text-muted); font-weight: 600; }
+
+  /* Tech stack */
+  .tech-group { margin-bottom: 6px; font-size: 12px; line-height: 1.55; }
+  .tech-group .level {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 3px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .level-master { background: #1f2937; color: #fff; }
+  .level-familiar { background: #2563eb; color: #fff; }
+  .level-know { background: #9ca3af; color: #fff; }
+  .tech-group strong { color: var(--primary); }
+  .tech-group ul { list-style: none; padding-left: 4px; }
+  .tech-group li { margin-bottom: 2px; padding-left: 12px; position: relative; }
+  .tech-group li::before { content: "▸"; position: absolute; left: 0; color: var(--accent); font-size: 9px; top: 4px; }
+
+  /* Project */
+  .project { margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px dashed var(--border); }
+  .project:last-child { border-bottom: none; }
+  .project-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 6px; margin-bottom: 4px; }
+  .project-title { font-size: 13px; font-weight: 700; color: var(--primary); }
+  .project-meta { font-size: 11px; color: var(--text-muted); }
+  .project-meta strong { color: var(--text-secondary); }
+
+  .project-section { margin-top: 4px; font-size: 12px; }
+  .project-section-title {
+    display: inline-block;
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 11px;
+    margin-right: 4px;
+  }
+  .project-bg { background: var(--bg-soft); padding: 6px 10px; border-left: 3px solid var(--accent); font-size: 12px; color: var(--text-secondary); margin-top: 4px; }
+
+  .project ul { list-style: none; padding-left: 0; margin-top: 2px; }
+  .project ul li { padding-left: 14px; position: relative; margin-bottom: 2px; font-size: 12px; line-height: 1.5; }
+  .project ul li::before { content: "●"; position: absolute; left: 0; color: var(--accent); font-size: 6px; top: 6px; }
+
+  .project-tags { margin-top: 5px; }
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    padding: 1px 6px;
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    border-radius: 3px;
+    margin-right: 3px;
+    margin-bottom: 3px;
+    font-weight: 500;
+  }
+
+  /* Work history */
+  .work-item { margin-bottom: 8px; font-size: 12px; }
+  .work-head { font-weight: 700; color: var(--primary); margin-bottom: 2px; }
+  .work-head .time { font-weight: 400; color: var(--text-muted); margin-left: 6px; font-size: 11px; }
+  .work-item ul { list-style: none; padding-left: 0; }
+  .work-item ul li { padding-left: 14px; position: relative; margin-bottom: 2px; font-size: 12px; }
+  .work-item ul li::before { content: "●"; position: absolute; left: 0; color: var(--accent); font-size: 6px; top: 6px; }
+
+  /* Education */
+  .edu-item { font-size: 12px; margin-bottom: 3px; }
+  .edu-item strong { color: var(--primary); }
+
+  /* Bonus */
+  .bonus-list { list-style: none; padding-left: 0; }
+  .bonus-list li { font-size: 12px; padding-left: 14px; position: relative; margin-bottom: 3px; }
+  .bonus-list li::before { content: "★"; position: absolute; left: 0; color: #f59e0b; font-size: 10px; top: 3px; }
+
+  /* Placeholder highlight */
+  .placeholder { color: var(--text-muted); font-style: italic; font-size: 12px; }
+
+  /* Print */
+  @page { size: A4; margin: 10mm 12mm; }
+  @media print {
+    body { background: #fff; font-size: 10.5px; line-height: 1.45; }
+    .page { margin: 0; box-shadow: none; padding: 0; max-width: 100%; border-radius: 0; }
+    section { margin-bottom: 10px; page-break-inside: avoid; }
+    .project { margin-bottom: 8px; padding-bottom: 6px; page-break-inside: avoid; }
+    .header { margin-bottom: 8px; padding-bottom: 6px; }
+    .project-section { margin-top: 3px; }
+    .project ul li { margin-bottom: 1px; }
+    .tech-group { margin-bottom: 4px; }
+    .tech-group li { margin-bottom: 1px; }
+    .work-item { margin-bottom: 5px; }
+  }
+
+  @media (max-width: 768px) {
+    .page { padding: 24px 20px; margin: 0; border-radius: 0; }
+    .project-head { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>陈亚运</h1>
+    <div class="tagline">Go 后端架构 + Agent 工程化 · 10 年大厂经验</div>
+    <div class="contact">
+      <span>📱 13121917705</span>
+      <span>✉️ 1019880993@qq.com</span>
+    </div>
+  </div>
+
+  <!-- Job Intent -->
+  <section>
+    <h2>求职意向</h2>
+    <div class="intent">
+      <span class="label">目标岗位：</span><span>Agent 开发工程师 / LLM 应用后端工程师（业务落地 / Agent 平台方向）</span>
+      <span class="label">期望城市：</span><span>北京</span>
+      <span class="label">到岗时间：</span><span>1 个月内</span>
+    </div>
+  </section>
+
+  <!-- Tech Stack -->
+  <section>
+    <h2>技术栈</h2>
+
+    <div class="tech-group">
+      <span class="level level-master">精通</span>
+      <ul>
+        <li><strong>Go</strong>：主力生产语言 6+ 年，gin / grpc / gorm / kafka-go / sarama / etcd 全栈实战，亿级流量治理经验</li>
+        <li><strong>Agent 框架与工程化</strong>：基于 Claude Code 的 harness engineering、loop engineering、ReAct 模式，自研 MCP Server / Workflow 编排框架</li>
+        <li><strong>LLM 应用开发</strong>：Claude / GPT / 国产模型 API 实战，Prompt 工程、结构化输出（JSON Mode / XML）、Prompt Caching、Function Calling</li>
+        <li><strong>分布式与高并发架构</strong>：限流、熔断、降级、单元化、全链路压测、可观测性建设</li>
+      </ul>
+    </div>
+
+    <div class="tech-group">
+      <span class="level level-familiar">熟悉</span>
+      <ul>
+        <li><strong>PHP</strong>：早期主力语言，熟悉 yaf 框架</li>
+        <li><strong>架构治理</strong>：DDD 领域驱动设计、复杂业务系统重构、模块解耦、依赖图谱与变更影响分析</li>
+        <li><strong>基础设施</strong>：Kafka、Redis、MySQL、ES、Docker、K8s、Prometheus / Grafana</li>
+        <li><strong>Prompt 与工具协议</strong>：MCP（Model Context Protocol）三大原语（Resources / Prompts / Tools），自定义工具描述与参数校验</li>
+      </ul>
+    </div>
+
+    <div class="tech-group">
+      <span class="level level-know">了解</span>
+      <ul>
+        <li>多 Agent 编排（Orchestrator + 子 Agent 分层模式）</li>
+        <li>Computer Use / Browser Agent（Anthropic Computer Use、Playwright MCP）</li>
+        <li>LangGraph / Anthropic Agent SDK（已完成内部 PoC）</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Project Experience -->
+  <section>
+    <h2>项目经验</h2>
+
+    <!-- Project 1 -->
+    <div class="project">
+      <div class="project-head">
+        <div class="project-title">项目一：SaaS 司机领域化改造 + AI-native 研发提效 Agent</div>
+        <div class="project-meta">2026.01 - 至今 · <strong>架构治理 RDO / Agent 方向负责人</strong> · 8 人团队</div>
+      </div>
+      <div class="project-bg">
+        鸿鹄 SaaS 司机域沉淀 <strong>8 个核心模块、20W+ 行历史代码</strong>。传统研发模式下新人 onboarding 周期长、CR 重复工作量大、跨模块改动风险不可控。需要构建基于 LLM 的研发提效 Agent，覆盖代码生成、自动化评审、知识问答、变更影响分析等场景。
+      </div>
+
+      <div class="project-section">
+        <span class="project-section-title">技术方案</span>
+        <ul>
+          <li><strong>领域建模</strong>：主导 8 个核心模块的领域事件风暴，沉淀 DDD 限界上下文，统一依赖图谱，作为 Agent 检索与变更影响分析的事实基线</li>
+          <li><strong>AI-native 提效框架</strong>：基于 <strong>Claude Code + harness engineering</strong> 自研 workflow 编排，将需求理解 → 代码生成 → 评审 → 影响分析串成可灰度的工程化 pipeline</li>
+          <li><strong>降本</strong>：自研 MCP 工具支持按模块/文件粒度代码分析，单次任务 token 消耗对比原始 prompt 下降 <span class="placeholder">[占位：待补充具体百分比]</span></li>
+          <li><strong>记忆与知识库</strong>：自研长效记忆存储与项目知识库 RAG，增强跨会话上下文连续性</li>
+          <li><strong>评估体系</strong>：建立 golden set 与人工抽检闭环，关键场景 CR 通过率 / 变更影响准确率上线后统计</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <span class="project-section-title">个人贡献</span>
+        <ul>
+          <li>主导整体 DDD 领域推导与 Agent 提效 workflow 设计</li>
+          <li>设计研发改造规范，把 AI 生成代码纳入 Code Review 与 CI 流程</li>
+          <li>主导 Agent 评估指标体系建设</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <span class="project-section-title">项目成果</span>
+        <ul>
+          <li>📊 <strong>平台规模</strong>：覆盖司机域 8 个核心模块 / 20W+ 行代码 / 日均在线司机与订单百万级</li>
+          <li>🏗️ <strong>架构治理</strong>：8 模块完成 DDD 领域化梳理，统一依赖图谱与变更影响分析口径</li>
+          <li>⚡ <strong>效率提升</strong>：<span class="placeholder">[CR 自动化覆盖率 / 新人 onboarding 周期 / 变更影响分析准确率] 占位待补充</span></li>
+          <li>🤖 <strong>AI 落地</strong>：沉淀 harness / loop / MCP 工具三套内部框架，复用至其他 2 个业务线</li>
+        </ul>
+      </div>
+
+      <div class="project-tags">
+        <span class="tag">Go</span>
+        <span class="tag">Claude Code</span>
+        <span class="tag">harness engineering</span>
+        <span class="tag">loop engineering</span>
+        <span class="tag">MCP</span>
+        <span class="tag">ReAct</span>
+        <span class="tag">DDD</span>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project">
+      <div class="project-head">
+        <div class="project-title">项目二：SaaS 司机多产品线架构升级（顺风车 + 出租车）</div>
+        <div class="project-meta">2025.01 - 2025.12 · <strong>司机 FTO</strong> · 协调 30+ 团队 / 司机核心团队 10+ 人</div>
+      </div>
+      <div class="project-bg">
+        司机在线业务从单一产品线扩充到顺风车、出租车，原有架构按单产品线设计，存在重复建设、规则分散、灰度体系薄弱等问题。
+      </div>
+
+      <div class="project-section">
+        <span class="project-section-title">技术方案</span>
+        <ul>
+          <li>设计 SaaS 司机<strong>多产品线架构标准</strong>：统一在线流程抽象、领域实体抽象、产品线配置化</li>
+          <li><strong>跨产品线复用</strong>：核心服务下沉至中台（司机档案 / 计费 / 合规 / 规则引擎），新业务接入周期从 <span class="placeholder">[历史 X 周]</span> 降到 <strong>2 周</strong></li>
+          <li><strong>跨团队协同</strong>：协调 30+ 团队（顺风车、出租车、产品、风控、合规、平台）完成存量系统改造与新架构落地，主导技术方案 review 与冲突协调</li>
+          <li><strong>多产品线灰度发布</strong>：按产品 / 城市 / 司机类型多维度灰度，支持单产品线秒级回滚</li>
+          <li><strong>统一可观测性</strong>：司机全链路 trace、告警、资金相关强一致对账</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <span class="project-section-title">个人贡献</span>
+        <ul>
+          <li>主导司机域架构标准制定与推广，组织 10+ 人核心研发团队（Go 后端为主）</li>
+          <li>完成跨 30+ 团队的技术方案 review 与冲突协调</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <span class="project-section-title">项目成果</span>
+        <ul>
+          <li>📊 <strong>架构能力</strong>：司机在线架构从支持单产品线升级为同时支撑三条产品线（快车 / 顺风车 / 出租车）</li>
+          <li>🏆 <strong>稳定上线</strong>：架构升级 0 重大事故 <span class="placeholder">（占位待补充具体事故数与 SLO）</span></li>
+          <li>⚡ <strong>接入提速</strong>：新业务接入周期从 X 周压缩到 2 周 <span class="placeholder">（占位待补充具体数字）</span></li>
+        </ul>
+      </div>
+
+      <div class="project-tags">
+        <span class="tag">Go</span>
+        <span class="tag">DDD</span>
+        <span class="tag">gRPC</span>
+        <span class="tag">Kafka</span>
+        <span class="tag">多产品线灰度</span>
+        <span class="tag">全链路 Trace</span>
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project">
+      <div class="project-head">
+        <div class="project-title">项目三：鸿鹄 SaaS 支持小猪自营司机 + 撮合核心流程重构</div>
+        <div class="project-meta">2023.01 - 2023.12 · <strong>研发 RDO</strong> · 10+ 人团队</div>
+      </div>
+      <div class="project-bg">
+        鸿鹄司机在线撮合流程需重构以支持小猪自营司机，业务规模扩张要求统一司机档案与计费。
+      </div>
+
+      <div class="project-section">
+        <span class="project-section-title">技术方案</span>
+        <ul>
+          <li>重构<strong>撮合核心流程</strong>（Go），完成流量在线迁移</li>
+          <li><strong>司机融合</strong>：自营 + 花小猪司机档案统一、订单路由统一、计费规则统一</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <span class="project-section-title">个人贡献</span>
+        <ul>
+          <li>主导整体融合方案设计与推进，组织 10+ 人研发团队（Go 后端为主）</li>
+          <li>主导撮合核心流程代码重构</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <span class="project-section-title">项目成果</span>
+        <ul>
+          <li>业务迭代效率提升 <span class="placeholder">（占位待补充具体百分比）</span></li>
+          <li>完成司机融合，0 重大事故 <span class="placeholder">（占位待补充具体事故数）</span></li>
+        </ul>
+      </div>
+
+      <div class="project-tags">
+        <span class="tag">Go</span>
+        <span class="tag">撮合引擎</span>
+        <span class="tag">DDD</span>
+        <span class="tag">在线流量迁移</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work Experience -->
+  <section>
+    <h2>工作经历</h2>
+
+    <div class="work-item">
+      <div class="work-head">滴滴 | 资深研发工程师 · 司机 FTO / 架构治理 RDO <span class="time">2024.01 - 至今</span></div>
+      <ul>
+        <li>主导鸿鹄 SaaS 司机稳定性治理、安全场景治理、费用场景治理</li>
+        <li>主导鸿鹄 SaaS 司机顺风车、出租车多产品线架构升级</li>
+        <li>主导鸿鹄 SaaS 司机领域架构升级与 AI-native 提效落地</li>
+        <li>负责司机方向团队管理与人员培养</li>
+      </ul>
+    </div>
+
+    <div class="work-item">
+      <div class="work-head">滴滴 | 资深研发工程师 · 核心研发 <span class="time">2021.01 - 2023.12</span></div>
+      <ul>
+        <li>主导鸿鹄 SaaS 从 0 到 1 建设，主导撮合流程改造</li>
+        <li>主导鸿鹄 SaaS 支持小猪自营主流程改造</li>
+      </ul>
+    </div>
+
+    <div class="work-item">
+      <div class="work-head">滴滴 | 高级研发工程师 <span class="time">2018.05 - 2020.12</span></div>
+      <ul>
+        <li>主导顺风车日常管控迭代与开发平台建设</li>
+      </ul>
+    </div>
+
+    <div class="work-item">
+      <div class="work-head">百度外卖 | 高级研发工程师 <span class="time">2016.04 - 2018.04</span></div>
+      <ul>
+        <li>主导百度外卖配送日常迭代（Go / PHP）</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section>
+    <h2>教育背景</h2>
+    <div class="edu-item"><strong>北京邮电大学</strong> | 计算机科学与技术 | 硕士 | 2013.09 - 2016.04</div>
+    <div class="edu-item"><strong>安徽工业大学</strong> | 网络工程 | 本科 | 2008.09 - 2012.06</div>
+  </section>
+
+  <!-- Bonus -->
+  <section>
+    <h2>加分项</h2>
+    <ul class="bonus-list">
+      <li><strong>大厂规模化落地</strong>：亿级流量治理经验，可将大厂后端工程化能力迁移至 Agent 平台建设</li>
+      <li><strong>DDD 实战</strong>：8 模块领域化梳理经验，能把领域知识结构化输入 Agent，支撑高质量 RAG 与变更分析</li>
+      <li><strong>跨团队协调</strong>：单一项目协调 30+ 团队经验，适合 Agent 平台跨业务线推广场景</li>
+    </ul>
+  </section>
+
+</div>
+</body>
+</html>
