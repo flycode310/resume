@@ -47,7 +47,9 @@
       "Bash(sips -z 2400 1692 /tmp/v3.png --out /tmp/v3_b.png)",
       "Bash(sips --cropToHeightWidth 1123 794 --cropOffset 1123 0 /tmp/v3.png --out /tmp/p2_v3.png)",
       "Bash(sips -z 1400 990 /tmp/p2_v3.png --out /tmp/p2_v3_s.png)",
-      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-sandbox --window-size=794,2246 --hide-scrollbars --screenshot=/tmp/verify.png \"file:///Users/chenyayun/work/resume/resume_chenyayun_agent_engineer.html\")"
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-sandbox --window-size=794,2246 --hide-scrollbars --screenshot=/tmp/verify.png \"file:///Users/chenyayun/work/resume/resume_chenyayun_agent_engineer.html\")",
+      "Bash(python3 -c \"import markdown; print\\(markdown.__version__\\)\")",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-sandbox --print-to-pdf=/Users/chenyayun/work/resume/resume_chenyayun_agent_engineer.pdf --print-to-pdf-no-header --no-pdf-header-footer \"file:///Users/chenyayun/work/resume/resume_chenyayun_agent_engineer.html\")"
     ]
   }
 }
