@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{姓名} - {岗位} 简历</title>
+<link rel="stylesheet" href="resume-template.css">
+<!--
+  使用说明：
+  1. 把本页所有 {占位} 文本替换成实际内容
+  2. <section> 整块复制/删除即可新增/删除版块
+  3. .project 整块复制即可新增项目；删除则移除一个项目
+  4. .tag 整段追加即可新增技术栈标签
+  5. 打印 PDF：浏览器 → 打印 → 另存为 PDF（已对 A4 优化）
+-->
+</head>
+<body>
+<div class="page">
+
+  <!-- ============ Header ============ -->
+  <div class="header">
+    <h1>{姓名}</h1>
+    <div class="contact">
+      <span>📱 电话：{手机号}</span>
+      <span>✉️ 邮箱：{邮箱}</span>
+      <!-- 可选：<span>🌐 GitHub：{GitHub}</span> -->
+    </div>
+  </div>
+
+  <!-- ============ Job Intent ============ -->
+  <section>
+    <h2>求职意向</h2>
+    <div class="intent">
+      <span class="label">目标岗位：</span><span>{岗位方向}</span>
+      <span class="label">期望城市：</span><span>{期望城市}</span>
+    </div>
+  </section>
+
+  <!-- ============ Education ============ -->
+  <section>
+    <h2>教育背景</h2>
+    <div class="edu-item"><strong>{学校}</strong> | {专业} | {学历} | {起止时间}</div>
+    <div class="edu-item"><strong>{学校}</strong> | {专业} | {学历} | {起止时间}</div>
+  </section>
+
+  <!-- ============ Work Experience ============ -->
+  <section>
+    <h2>工作经历</h2>
+
+    <div class="work-item">
+      <div class="work-head">{公司} | {职位} <span class="time">{起止时间}</span></div>
+      <ul>
+        <li>{职责 / 成果描述}</li>
+        <li>{职责 / 成果描述}</li>
+        <li>{职责 / 成果描述}</li>
+      </ul>
+    </div>
+
+    <div class="work-item">
+      <div class="work-head">{公司} | {职位} <span class="time">{起止时间}</span></div>
+    </div>
+
+    <!-- 复制 <div class="work-item">...</div> 可增加工作经历 -->
+  </section>
+
+  <!-- ============ Tech Stack ============ -->
+  <section>
+    <h2>技术栈</h2>
+    <div class="tech-group">
+      <ul>
+        <li><strong>{分类}</strong>：{内容}</li>
+        <li><strong>{分类}</strong>：{内容}</li>
+        <li><strong>{分类}</strong>：{内容}</li>
+        <li><strong>{分类}</strong>：{内容}</li>
+        <li><strong>{分类}</strong>：{内容}</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ Project Experience ============ -->
+  <section>
+    <h2>项目经验</h2>
+
+    <!-- ---------- Project Block（整块复制可增加项目） ---------- -->
+    <div class="project">
+      <div class="project-head">
+        <div class="project-title">项目{编号}：{项目名称}</div>
+        <div class="project-meta">{时间} · <strong>{角色}</strong> · {团队规模}</div>
+      </div>
+      <div class="project-bg">
+        {项目背景一段话}
+      </div>
+
+      <div class="project-section">
+        <span class="project-section-title">技术方案</span>
+        <ul>
+          <li><strong>{要点标题}</strong>：{要点描述}</li>
+          <li><strong>{要点标题}</strong>：{要点描述}</li>
+          <li><strong>{要点标题}</strong>：{要点描述}</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <span class="project-section-title">个人贡献</span>
+        <ul>
+          <li>{贡献}</li>
+          <li>{贡献}</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <span class="project-section-title">项目成果</span>
+        <ul>
+          <li><strong>[{类别}]</strong> {成果} <strong>{关键数字}</strong></li>
+          <li><strong>[{类别}]</strong> {成果} <strong>{关键数字}</strong></li>
+        </ul>
+      </div>
+
+      <div class="project-tags">
+        <span class="tag">{标签}</span>
+        <span class="tag">{标签}</span>
+        <span class="tag">{标签}</span>
+        <!-- 复制 <span class="tag">{标签}</span> 追加标签 -->
+      </div>
+    </div>
+    <!-- ---------- /Project Block ---------- -->
+
+    <!-- 复制整块 Project Block 增加新项目 -->
+
+  </section>
+
+</div>
+</body>
+</html>
