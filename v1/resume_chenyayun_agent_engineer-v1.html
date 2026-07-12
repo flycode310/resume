@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>陈亚运 - 简历</title>
+<style>/*
+ * Resume CSS — A4 双页排版模板（PDF-ready）
+ * 适配中文技术简历；HTML 自身即 PDF-ready，浏览器视图与 PDF 一致
+ */
+
+:root {
+  --primary: #1f2937;
+  --accent: #2563eb;
+  --accent-light: #eff6ff;
+  --text: #1f2937;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+  --border: #e5e7eb;
+  --bg: #ffffff;
+  --bg-soft: #f9fafb;
+  --tag-bg: #eff6ff;
+  --tag-text: #1d4ed8;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 12.5px; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+  background: #e5e7eb;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  width: 200mm;
+  min-height: 287mm;
+  max-width: 100%;
+  padding: 16mm;
+  margin: 0;
+  background: var(--bg);
+  box-shadow: none;
+  border-radius: 0;
+  overflow: hidden;
+  page-break-after: always;
+  display: flex;
+  flex-direction: column;
+}
+.page:last-child { page-break-after: auto; }
+
+.page-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: safe center;
+}
+
+.header {
+  border-bottom: 3px solid var(--primary);
+  padding: 3mm 0 3mm 4mm;
+  margin-bottom: 8px;
+  border-left: 4px solid var(--accent);
+}
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+.header h1 {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--primary);
+  line-height: 1.1;
+}
+.header .role-badge {
+  background: var(--accent);
+  color: #ffffff;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+.header .subtitle {
+  margin-top: 2px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.5px;
+}
+.header .contact {
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.header .contact span { margin-right: 12px; }
+
+section { margin-bottom: 10px; }
+section h2 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
+  border-left: 3px solid var(--accent);
+  padding-left: 8px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.intent { display: grid; grid-template-columns: max-content 1fr; gap: 3px 16px; font-size: 13px; }
+.intent .label { color: var(--text-muted); font-weight: 600; }
+
+.edu-item { font-size: 12px; margin-bottom: 2px; }
+.edu-item strong { color: var(--primary); }
+
+.work-item { margin-bottom: 5px; font-size: 12px; }
+.work-head { font-weight: 700; color: var(--primary); margin-bottom: 2px; }
+.work-head .time { font-weight: 400; color: var(--text-muted); margin-left: 6px; font-size: 11px; }
+.work-item ul { list-style: none; padding-left: 0; }
+.work-item ul li {
+  padding-left: 14px; position: relative;
+  margin-bottom: 1px; font-size: 12px;
+}
+.work-item ul li::before {
+  content: "●"; position: absolute; left: 0;
+  color: var(--accent); font-size: 6px; top: 6px;
+}
+
+.tech-group { margin-bottom: 3px; font-size: 12px; line-height: 1.5; }
+.tech-group ul { list-style: none; padding-left: 0; }
+.tech-group li {
+  margin-bottom: 2px; padding-left: 14px; position: relative;
+  line-height: 1.55;
+}
+.tech-group li::before {
+  content: "●"; position: absolute; left: 0;
+  color: var(--accent); font-size: 6px; top: 6px;
+}
+.tech-group li strong { color: var(--primary); }
+
+.project {
+  margin-bottom: 12px; padding-bottom: 10px;
+  border-bottom: 1px dashed var(--border);
+}
+.project:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.project-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  flex-wrap: wrap; gap: 4px; margin-bottom: 3px;
+}
+.project-title { font-size: 13px; font-weight: 700; color: var(--primary); }
+.project-meta { font-size: 11px; color: var(--text-muted); }
+.project-meta strong { color: var(--text-secondary); }
+
+.project-head-vertical { flex-direction: column; align-items: flex-start; }
+.project-head-vertical .project-meta { margin-top: 2px; }
+
+.project-section { margin-top: 3px; font-size: 12px; }
+.project-section-title {
+  display: inline-block;
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 11px;
+  margin-right: 4px;
+}
+
+.project ul { list-style: none; padding-left: 0; margin-top: 1px; }
+.project ul li {
+  padding-left: 14px; position: relative;
+  margin-bottom: 1px; font-size: 12px; line-height: 1.5;
+}
+.project ul li::before {
+  content: "●"; position: absolute; left: 0;
+  color: var(--accent); font-size: 6px; top: 6px;
+}
+
+.project-tags { margin-top: 5px; }
+.tag {
+  display: inline-block;
+  font-size: 10px;
+  padding: 1px 6px;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  border-radius: 3px;
+  margin-right: 3px;
+  margin-bottom: 3px;
+  font-weight: 500;
+}
+
+.page-second { padding-top: 22mm; }
+
+.project-compact { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+.project-compact .project-section { margin-top: 2px; }
+.project-compact .project ul li { margin-bottom: 1px; line-height: 1.45; }
+.project-compact .project-tags { margin-top: 4px; }
+
+@page { size: A4; margin: 5mm; }
+
+@media (max-width: 768px) {
+  body { background: #fff; }
+  .page {
+    padding: 18px 16px;
+    width: 100%;
+    min-height: auto;
+  }
+  .project-head { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- ========================= 第 1 页 ========================= -->
+<div class="page">
+  <div class="page-body">
+
+  <div class="header">
+    <div class="header-top">
+      <h1>陈亚运</h1>
+      <span class="role-badge">求职中 · Agent 方向</span>
+    </div>
+    <div class="subtitle">资深后端研发工程师 · DDD / SaaS 架构 / AI-native 提效</div>
+    <div class="contact">
+      <span>📍 北京</span>
+      <span>📱 13121917705</span>
+      <span>✉️ 1019880993@qq.com</span>
+      <span>· 10 年服务端架构经验</span>
+    </div>
+  </div>
+
+  <section>
+    <h2>求职意向</h2>
+    <div class="intent">
+      <span class="label">目标岗位：</span><span>Agent 开发工程师、服务端研发工程师</span>
+      <span class="label">期望城市：</span><span>北京</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>教育背景</h2>
+    <div class="edu-item"><strong>北京邮电大学</strong> | 计算机科学与技术 | 硕士 | 2013.09 - 2016.04</div>
+    <div class="edu-item"><strong>安徽工业大学</strong> | 网络工程 | 本科 | 2008.09 - 2012.06</div>
+  </section>
+
+  <section>
+    <h2>工作经历</h2>
+
+    <div class="work-item">
+      <div class="work-head">滴滴-网约车开放平台 | 资深研发工程师 <span class="time">2019.07 - 至今</span></div>
+      <ul>
+        <li>主导鸿鹄SaaS司机DDD领域化改造 + AI-native研发提效Agent落地（详见项目一）</li>
+        <li>主导鸿鹄SaaS司机多产品线架构升级（详见项目二）</li>
+        <li>主导鸿鹄SaaS司机融合小猪自营司机主流程升级（详见项目三）</li>
+        <li>作为核心研发参与鸿鹄SaaS从0到1建设</li>
+        <li>参与开放平台日常迭代</li>
+      </ul>
+    </div>
+
+    <div class="work-item">
+      <div class="work-head">滴滴-顺风车事业部 | 高级研发工程师 <span class="time">2018.05 - 2019.09</span></div>
+      <ul>
+        <li>参与顺风车交易管控日常迭代</li>
+      </ul>
+    </div>
+
+    <div class="work-item">
+      <div class="work-head">百度外卖 | 高级研发工程师 <span class="time">2016.04 - 2018.04</span></div>
+      <ul>
+        <li>参与百度外卖配送日常迭代</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>项目经验</h2>
+
+    <div class="project">
+      <div class="project-head project-head-vertical">
+        <div class="project-title">项目一：SaaS司机主流程领域化改造 + AI-native 研发提效 Agent</div>
+        <div class="project-meta">2025.11 - 至今 · <strong>主导SaasS司机架构治理</strong> · 8 人团队</div>
+      </div>
+
+      <div class="project-section">
+        <span class="project-section-title">项目背景</span>
+        <ul>
+          <li>鸿鹄SaaS司机域沉淀 <strong>10+ 个核心模块、60W+ 行历史代码</strong></li>
+          <li>传统事务脚本模式编程，缺少业务抽象</li>
+          <li>事故率高、开发周期长、新人培养周期长</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <span class="project-section-title">技术方案</span>
+        <ul>
+          <li><strong>领域建模</strong>：SaasS司机主流程领域事件风暴推演，沉淀 DDD 限界上下文，划分流程单据与司机运力中心，统一依赖架构，作为 Agent 检索与变更影响分析的事实基线。</li>
+          <li><strong>开发框架</strong>：放弃传统的事务脚本开发框架，制定符合DDD的四层代码框架，对历史代码进行迁移改造。自研在线流量diff框架，保证模块迁移的稳定性。</li>
+          <li><strong>AI-native 提效框架</strong>：基于Claude Code + harness engineering自研 workflow 编排框架，驱动"需求理解 → 代码生成 → 评审 → 上线 → 沉淀知识库"。</li>
+          <li><strong>降本</strong>：自研 MCP 工具支持按模块/文件粒度代码分析，单次任务token消耗对比原始 prompt 下降30%以上。</li>
+          <li><strong>记忆与知识库</strong>：自研长效记忆存储与项目知识库,增强跨会话上下文连续性。</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <span class="project-section-title">个人贡献</span>
+        <ul>
+          <li>主导整体 DDD 领域推导与 Agent 提效 workflow 设计</li>
+          <li>主导框架开发规范、稳定性规范、Agent使用规范</li>
+          <li>主导项目推进管理</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <span class="project-section-title">项目成果</span>
+        <ul>
+          <li><strong>架构治理</strong>：完成SaaS司机主流程领域梳理，明确限界上下文、领域架构、开发框架</li>
+          <li><strong>AI 落地</strong>：沉淀AI-native内部框架与Skill，用于技术改造与日常需求迭代</li>
+          <li><strong>效率提升</strong>：技术改造方案设计和项目开发效率提升20%</li>
+        </ul>
+      </div>
+
+      <div class="project-tags">
+        <span class="tag">Go</span>
+        <span class="tag">Claude Code</span>
+        <span class="tag">Skill</span>
+        <span class="tag">harness engineering</span>
+        <span class="tag">loop engineering</span>
+        <span class="tag">MCP</span>
+        <span class="tag">DDD</span>
+      </div>
+    </div>
+
+  </section>
+
+  </div>
+</div>
+
+<!-- ========================= 第 2 页 ========================= -->
+<div class="page page-second">
+  <div class="page-body">
+
+  <section>
+    <h2>项目经验</h2>
+
+    <div class="project">
+      <div class="project-head">
+        <div class="project-title">项目二：SaaS 司机多产品线架构升级（顺风车 + 出租车）</div>
+        <div class="project-meta">2024.11 - 2025.10 · <strong>主导SaasS司机多产品线架构升级</strong> · 协调 30+ 团队 ｜司机核心团队 10+ 人</div>
+      </div>
+
+      <div class="project-section">
+        <span class="project-section-title">项目背景</span>
+        <ul>
+          <li>业务规划需要探索顺风车、出租车两种业务场景</li>
+          <li>SaaS司机当前架构只支持快车，需要快速支持顺风车、出租车MVP版本快速上线</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <span class="project-section-title">技术方案</span>
+        <ul>
+          <li>设计 SaaS 司机<strong>多产品线架构</strong>：统一在线流程抽象、领域实体抽象、产品线配置化</li>
+          <li><strong>跨团队协同</strong>：协调 30+ 团队完成存量系统架构盘点与新架构落地，推动项目落地</li>
+          <li><strong>多产品线灰度发布</strong>：按产品 / 城市 / 司机类型多维度灰度，支持单产品线秒级回滚</li>
+          <li><strong>统一可观测性</strong>：司机全链路 trace、告警、资金相关强一致对账</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <span class="project-section-title">个人贡献</span>
+        <ul>
+          <li>主导设计SaaS多产品线复用与隔离</li>
+          <li>推动协调30+ 团队进行项目落地</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <span class="project-section-title">项目成果</span>
+        <ul>
+          <li><strong>架构能力</strong>：司机在线架构从支持单产品线升级为同时支撑三条产品线（快车 / 顺风车 / 出租车）</li>
+          <li><strong>稳定上线</strong>：架构升级 0 事故</li>
+        </ul>
+      </div>
+
+      <div class="project-tags">
+        <span class="tag">SaaS司机</span>
+        <span class="tag">顺风车</span>
+        <span class="tag">出租车</span>
+        <span class="tag">多产品线灰度</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <div class="project-title">项目三：鸿鹄 SaaS 支持小猪自营司机主流程升级</div>
+        <div class="project-meta">2023.01 - 2024.10 · <strong>主导SaaS司机主流程升级</strong> · 10+ 司机核心团队｜10w+司机｜100w+订单</div>
+      </div>
+
+      <div class="project-section">
+        <span class="project-section-title">项目背景</span>
+        <ul>
+          <li>鸿鹄SaaS司机和小猪分属两个团队，但是业务场景高度重叠，研发资源浪费严重</li>
+          <li>鸿鹄SaaS司机需要进行架构升级以支持自营司机多出来的60+项新功能</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <span class="project-section-title">技术方案</span>
+        <ul>
+          <li><strong>整体架构梳理</strong>：从业务流程、存储依赖、稳定性三个大维度对60+新功能进行架构分层归纳、改造优先级排序，确定架构升级整体框架。</li>
+          <li><strong>撮合流程重构</strong>：一阶段SaaS司机在线撮合流程进行重构，二阶段自营司机流量接入。</li>
+          <li><strong>费用流程重构</strong>：一阶段搭建新流程接入自营司机，二阶段SaaS司机切入新流程。</li>
+          <li><strong>安全管控重构</strong>：一阶段完成最基本安全管控能力，二阶段升级到完全形态。</li>
+          <li><strong>稳定性治理</strong>：从7个维度对升级过程进行稳定性治理。</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <span class="project-section-title">个人贡献</span>
+        <ul>
+          <li>深度参与整体架构梳理，主导主业务流程全面梳理</li>
+          <li>主导撮合流程、费用流程、安全管控流程的平稳落地</li>
+          <li>主导稳定性治理落地</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <span class="project-section-title">项目成果</span>
+        <ul>
+          <li>业务迭代效率提升20%以上</li>
+          <li>完成司机融合，0 重大事故</li>
+        </ul>
+      </div>
+
+      <div class="project-tags">
+        <span class="tag">Go</span>
+        <span class="tag">撮合引擎</span>
+        <span class="tag">费用流程</span>
+        <span class="tag">安全管控</span>
+        <span class="tag">稳定性治理</span>
+        <span class="tag">在线流量迁移</span>
+      </div>
+    </div>
+
+  </section>
+
+  <section>
+    <h2>技术栈</h2>
+    <div class="tech-group">
+      <ul>
+        <li><strong>编程语言</strong>：php和go，熟悉基本原理、常用框架和组件</li>
+        <li><strong>Agent 框架与工程化</strong>：Claude Code、Prompt、Harness、Loop、MCP、Workflow编排框架</li>
+        <li><strong>分布式与高并发</strong>：限流、熔断、降级、单元化、全链路压测、可观测性建设</li>
+        <li><strong>架构治理</strong>：DDD 领域驱动设计、复杂业务系统重构、模块解耦、依赖图谱与变更影响分析</li>
+        <li><strong>项目管理</strong>：任务分解、排期推动、风险管理、复盘总结</li>
+        <li><strong>基础设施</strong>：RPC、Redis、MySQL、DDMQ、ES、Docker</li>
+      </ul>
+    </div>
+  </section>
+
+  </div>
+</div>
+
+</body>
+</html>

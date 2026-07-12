@@ -1,14 +1,17 @@
 /*
- * Resume CSS — A4 双页排版模板
- * 适配中文技术简历，自动屏幕预览 + PDF 打印双优化
+ * Resume CSS — A4 双页排版模板（PDF-ready）
+ * 适配中文技术简历；HTML 自身即 PDF-ready，浏览器视图与 PDF 一致
  *
  * 用法：直接粘贴到 HTML 的 <style> 标签内，或通过 <link> 引用
  *
  * 设计要点：
- *   - 每张 .page = 一张物理 A4
- *   - 屏幕上是 210mm×297mm 的卡片堆叠
- *   - 打印时 @page 控制纸张，.page 强制分页
+ *   - 每张 .page = 一张 A4 内容区（200×287mm，对应 @page 留 5mm 后的可打印区域）
+ *   - 屏幕预览：HTML 仍以 200×287 卡片堆叠，垂直居中（视觉上仍是"两张 A4 卡片"）
+ *   - PDF 打印：Chrome headless 直接渲染，无阴影、无大外 margin、5mm 白色页边距
  *   - 768px 以下自动切换单列移动端布局
+ *
+ * 注意：本模板没有 @media print 块。基线样式同时服务屏幕视图与 PDF 输出，
+ *        不要照搬"打印紧凑 / 屏幕宽松"的双套 CSS 思路。
  */
 
 :root {
@@ -27,7 +30,7 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { font-size: 13px; }
+html { font-size: 12.5px; }
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif;
@@ -38,28 +41,78 @@ body {
 }
 
 /* ============================================================
-   A4 单页容器 —— 屏幕上是 210mm × 297mm 的一页简历
-   打印时由 @page 控制实际纸张尺寸
+   A4 单页容器 —— 200×287mm，对应 @page 留 5mm 后的可打印区域
+   flex 列布局：.page 用 flex 列把 .page-body 撑满；.page-body 内
+   用 justify-content: safe center 让内容在垂直方向居中。
+   当内容溢出 .page-body 时，safe center 会回退到 start，避免被裁剪
    ============================================================ */
 .page {
-  width: 210mm;
-  min-height: 297mm;
+  width: 200mm;
+  min-height: 287mm;
   max-width: 100%;
-  padding: 16mm 16mm;
-  margin: 8mm auto;
+  padding: 16mm;
+  margin: 0;
   background: var(--bg);
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
-  border-radius: 2px;
+  box-shadow: none;
+  border-radius: 0;
   overflow: hidden;
   page-break-after: always;
+  display: flex;
+  flex-direction: column;
 }
 .page:last-child { page-break-after: auto; }
 
+/* 内容主体：flex:1 撑满 .page 内部；safe center 居中内容 */
+.page-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: safe center;
+}
+
 /* ============ Header ============ */
-.header { border-bottom: 2px solid var(--primary); padding-bottom: 8px; margin-bottom: 10px; }
-.header h1 { font-size: 26px; font-weight: 700; letter-spacing: 1px; color: var(--primary); }
-.header .contact { margin-top: 4px; font-size: 12px; color: var(--text-muted); }
-.header .contact span { margin-right: 14px; }
+.header {
+  border-bottom: 3px solid var(--primary);
+  padding: 3mm 0 3mm 4mm;
+  margin-bottom: 8px;
+  border-left: 4px solid var(--accent);
+}
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+.header h1 {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--primary);
+  line-height: 1.1;
+}
+.header .role-badge {
+  background: var(--accent);
+  color: #ffffff;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+.header .subtitle {
+  margin-top: 2px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.5px;
+}
+.header .contact {
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.header .contact span { margin-right: 12px; }
 
 /* ============ Section ============ */
 section { margin-bottom: 10px; }
@@ -161,6 +214,9 @@ section h2 {
   font-weight: 500;
 }
 
+/* 第 2 页顶部留白，让 section 标题不紧贴页眉 */
+.page-second { padding-top: 22mm; }
+
 /* 第 1 页项目一空间紧张时使用，压缩其内部间距 */
 .project-compact { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
 .project-compact .project-section { margin-top: 2px; }
@@ -168,66 +224,16 @@ section h2 {
 .project-compact .project-tags { margin-top: 4px; }
 
 /* ============================================================
-   Print —— 每张 .page 强制分页到一张物理 A4
+   @page —— 5mm 外边距模拟屏幕视图里灰色 body 围绕 .page 卡片的视觉间距
+   不再需要单独的 @media print 块：基线 = PDF 输出
    ============================================================ */
-@page { size: A4; margin: 0; }
-@media print {
-  body { background: #fff; font-size: 10px; line-height: 1.4; }
-  .page {
-    margin: 0;
-    box-shadow: none;
-    border-radius: 0;
-    padding: 12mm 12mm;
-    width: 210mm;
-    min-height: 297mm;
-  }
-
-  section { margin-bottom: 4px; }
-  section h2 { margin-bottom: 3px; font-size: 12px; padding-left: 6px; }
-
-  .header { margin-bottom: 4px; padding-bottom: 3px; }
-  .header h1 { font-size: 21px; }
-  .header .contact { margin-top: 3px; font-size: 10px; }
-  .header .contact span { margin-right: 12px; }
-
-  .intent { font-size: 10px; gap: 2px 12px; line-height: 1.4; }
-
-  .tech-group { margin-bottom: 2px; line-height: 1.45; font-size: 10px; }
-  .tech-group li { margin-bottom: 1px; line-height: 1.45; padding-left: 11px; }
-  .tech-group li::before { font-size: 5px; top: 5px; }
-
-  .work-item { margin-bottom: 2px; font-size: 10px; }
-  .work-head { margin-bottom: 0; font-size: 10.5px; }
-  .work-head .time { font-size: 9.5px; margin-left: 4px; }
-  .work-item ul li { margin-bottom: 0; font-size: 10px; padding-left: 12px; line-height: 1.4; }
-
-  .edu-item { font-size: 10px; margin-bottom: 0; }
-
-  .project { margin-bottom: 5px; padding-bottom: 4px; page-break-inside: avoid; }
-  .project-head { margin-bottom: 2px; gap: 5px; }
-  .project-title { font-size: 12px; }
-  .project-meta { font-size: 9.5px; }
-  .project-head-vertical { flex-direction: column; align-items: flex-start; }
-  .project-head-vertical .project-meta { margin-top: 1px; }
-  .project-section { margin-top: 2px; font-size: 10px; }
-  .project-section-title { font-size: 10px; margin-right: 3px; }
-  .project ul { margin-top: 1px; }
-  .project ul li { margin-bottom: 0; line-height: 1.4; font-size: 10px; padding-left: 12px; }
-  .project ul li::before { top: 5px; font-size: 5px; }
-  .project-tags { margin-top: 3px; }
-  .tag { padding: 0 5px; font-size: 8.5px; margin-bottom: 1px; }
-
-  .project-compact { margin-bottom: 0; padding-bottom: 0; }
-}
+@page { size: A4; margin: 5mm; }
 
 /* ============ Mobile ============ */
 @media (max-width: 768px) {
   body { background: #fff; }
   .page {
     padding: 18px 16px;
-    margin: 0;
-    box-shadow: none;
-    border-radius: 0;
     width: 100%;
     min-height: auto;
   }

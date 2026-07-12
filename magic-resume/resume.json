@@ -1,0 +1,271 @@
+{
+  "title": "resume",
+  "basic": {
+    "name": "陈亚运",
+    "title": "Go研发工程师",
+    "employementStatus": "职位：研发工程师",
+    "email": "1019880993@qq.com",
+    "phone": "13121917705",
+    "location": "意向城市：北京",
+    "birthDate": "2025-01",
+    "fieldOrder": [
+      {
+        "id": "1",
+        "key": "name",
+        "label": "姓名",
+        "type": "text",
+        "visible": true
+      },
+      {
+        "id": "2",
+        "key": "title",
+        "label": "职位",
+        "type": "text",
+        "visible": false
+      },
+      {
+        "id": "3",
+        "key": "employementStatus",
+        "label": "状态",
+        "type": "text",
+        "visible": true
+      },
+      {
+        "id": "6",
+        "key": "phone",
+        "label": "电话",
+        "type": "text",
+        "visible": true
+      },
+      {
+        "id": "7",
+        "key": "location",
+        "label": "所在地",
+        "type": "text",
+        "visible": true
+      },
+      {
+        "id": "4",
+        "key": "birthDate",
+        "label": "生日",
+        "type": "date",
+        "visible": false
+      },
+      {
+        "id": "5",
+        "key": "email",
+        "label": "邮箱",
+        "type": "text",
+        "visible": true
+      }
+    ],
+    "icons": {
+      "email": "Mail",
+      "phone": "Phone",
+      "birthDate": "CalendarRange",
+      "employementStatus": "User",
+      "location": "MapPin"
+    },
+    "photoConfig": {
+      "width": 90,
+      "height": 120,
+      "aspectRatio": "1:1",
+      "borderRadius": "none",
+      "customBorderRadius": 0,
+      "visible": false
+    },
+    "customFields": [
+      {
+        "id": "personal",
+        "label": "个人网站",
+        "value": "https://zhangsan.dev",
+        "icon": "Globe",
+        "visible": false
+      },
+      {
+        "id": "6fbaadba-8302-4b5a-833d-c1ec647cba01",
+        "label": "职位",
+        "value": "职位：研发工程师",
+        "icon": "User",
+        "visible": false,
+        "displayLabel": false
+      },
+      {
+        "id": "bf6c3848-2b05-4edf-954d-b8850bb157ff",
+        "label": "意向城市",
+        "value": "意向城市：北京",
+        "icon": "MapPin",
+        "visible": false,
+        "displayLabel": false
+      }
+    ],
+    "photo": "/avatar.png",
+    "githubKey": "",
+    "githubUseName": "",
+    "githubContributionsVisible": false,
+    "layout": "left"
+  },
+  "education": [
+    {
+      "id": "1",
+      "school": "北京邮电大学",
+      "major": "计算机科学与技术",
+      "degree": "研究生",
+      "startDate": "2013-09",
+      "endDate": "2016/04",
+      "visible": true,
+      "gpa": "",
+      "description": "<p></p>"
+    },
+    {
+      "id": "dddf4472-2212-4fb3-9cc2-5eb4feea14c1",
+      "school": "安徽工业大学",
+      "major": "网络工程",
+      "degree": "本科",
+      "startDate": "2008/09",
+      "endDate": "2012/06",
+      "description": "",
+      "visible": true
+    }
+  ],
+  "skillContent": "<ul><li><p><strong>Agent 框架与工程化</strong>：Claude Code、Prompt、Harness、Loop、MCP、Workflow编排框架</p></li><li><p><strong>架构治理</strong>：DDD 领域驱动设计、复杂业务系统重构、模块解耦、依赖图谱与变更影响分析</p></li><li><p><strong>分布式与高并发</strong>：限流、熔断、降级、单元化、全链路压测、可观测性建设</p></li><li><p><strong>项目管理</strong>：具备团队管理经验，主导过多个大型项目的技术选型和架构设计</p></li><li><p><strong>编程基础</strong>：Golang、RPC、Redis、MySQL、DDMQ、ES、Docker</p></li></ul>",
+  "selfEvaluationContent": "",
+  "experience": [
+    {
+      "id": "1",
+      "company": "滴滴网约车",
+      "position": "资深研发工程师",
+      "date": "2019/10 - 至今",
+      "visible": true,
+      "details": "<ul><li><p>多次主导鸿鹄SaaS架构升级</p></li><li><p>作为核心研发参与鸿鹄SaaS从0到1建设</p></li><li><p>参与开放平台日常迭代</p></li></ul>"
+    },
+    {
+      "id": "694f8779-f9bd-4fc1-8167-5e7183bc192e",
+      "company": "滴滴顺风车",
+      "position": "高级研发工程师",
+      "date": "2018/05 - 2019/09",
+      "details": "<p></p><p></p>",
+      "visible": true
+    },
+    {
+      "id": "4e508884-9183-4f2b-80cb-fb06dce9ae27",
+      "company": "百度外卖",
+      "position": "高级研发工程师",
+      "date": "2016/04 - 2018/04",
+      "details": "<p></p><p></p>",
+      "visible": true
+    }
+  ],
+  "draggingProjectId": null,
+  "projects": [
+    {
+      "id": "p1",
+      "name": "项目一：鸿鹄SaaS司机主流程治理+AI提效",
+      "role": "技术负责人",
+      "date": "2025/11 - 至今",
+      "description": "<p><strong>项目背景</strong></p><ul><li><p>鸿鹄SaaS司机主流程 <strong>10+ 个核心模块、60W+ 行历史代码、事务脚本模式</strong></p></li><li><p>事故率高、开发周期长、新人培养周期长</p></li></ul><p><strong>技术方案</strong></p><ul><li><p><strong>领域建模（技术难点）</strong>：</p><ul><li><p>主流程领域事件风暴推演，沉淀 DDD 限界上下文</p></li><li><p>全流程划核心划分为5个单据+运力中心，统一依赖架构</p></li></ul></li><li><p><strong>模块迁移</strong>：</p><ul><li><p>采用DDD四层代码框架，历史php代码go迁移改造</p></li><li><p>制定稳定性规范，从三个维度保证历史接口平滑迁移</p></li></ul></li><li><p><strong>AI-coding 提效（技术难点）：</strong></p><ul><li><p>建模阶段沉淀skill和mcp，从五维度分析模块现状，赋能推演流程</p></li><li><p>模块迁移阶段自研AI-native工作流框架，驱动全开发流程</p></li><li><p>自研业务、架构、代码知识库，建立长期记忆机制</p></li></ul></li></ul><p><strong>个人贡献</strong></p><ul><li><p>主导整体 DDD 领域推导过程与AI-coding提效</p></li><li><p>主导框架开发规范、稳定性规范和项目推进管理</p></li></ul><p><strong>项目成果</strong></p><ul><li><p><strong>架构治理</strong>：理清整体架构，明确新架构、新开发框架</p></li><li><p><strong>AI 提效</strong>：落地AI-native驱动工作流Agent，项目推进效率提升20%</p></li></ul><p></p><p></p><p></p>",
+      "visible": true
+    },
+    {
+      "id": "p2",
+      "name": "项目二：SaaS 司机多产品线架构升级",
+      "role": "技术负责人",
+      "date": "2024/11 - 2025/10",
+      "description": "<p><strong>项目背景</strong></p><ul><li><p>业务规划需要探索顺风车、出租车两种业务场景</p></li><li><p>SaaS司机架构只支持快车，需要快速支持顺风车、出租车MVP版本快速上线</p></li></ul><p><strong>技术方案</strong></p><ul><li><p><strong>多产品线架构（技术难点）</strong>：</p><ul><li><p>多产品线识别、多司机品类识别方案选型</p></li><li><p>通用流程复用改造、拼车新场景领域抽象</p></li></ul></li><li><p><strong>跨团队协同（技术难点）：</strong></p><ul><li><p>协调中台以及业务技术团队30+，明确优先级、项目阶段、站会机制、反馈机制</p></li><li><p>进行存量系统架构盘点与新架构落地</p></li></ul></li><li><p><strong>多产品线灰度发布</strong>：</p><ul><li><p>按产品 / 城市 / 司机类型多维度灰度，并建立配套的监控、报警机制</p></li></ul></li></ul><p><strong>个人贡献</strong></p><ul><li><p>主导设计SaaS多产品线复用与隔离</p></li><li><p>推动协调30+ 团队进行项目落地</p></li></ul><p><strong>项目成果</strong></p><ul><li><p><strong>业务收益</strong>：完成新业务探索的预期，期间0线上事故</p></li><li><p><strong>架构能力</strong>：技术架构完成多产品线、多司机品类的升级，具备快速扩展产品线能力</p></li></ul><p></p><p></p>",
+      "visible": true
+    },
+    {
+      "id": "p3",
+      "name": "项目三：鸿鹄 SaaS 司机主流程升级",
+      "role": "技术负责人",
+      "date": "2023/01 - 2024/10",
+      "description": "<p><strong>项目背景</strong></p><ul><li><p>鸿鹄SaaS司机和小猪司机分属两个技术团队，业务发展规划重叠，研发资源浪费严重</p></li><li><p>鸿鹄SaaS司机加小猪自营司机，司机10w+、订单100w+，要保证平滑迁移</p></li></ul><p><strong>技术方案</strong></p><ul><li><p><strong>整体架构梳理（技术难点）</strong>：</p><ul><li><p>梳理60+新功能，对新功能进行架构分类，确定复用、新建、改造方案</p></li><li><p>梳理存储和组件依赖，作为功能迁移完整性、一致性的技术校验基准</p></li></ul></li><li><p>核心链路迁移：</p><ul><li><p><strong>撮合流程</strong>：一阶段SaaS司机在线撮合流程进行重构，二阶段自营司机流量接入复用</p></li><li><p><strong>费用流程</strong>：一阶段搭建新流程接入自营司机，二阶段SaaS司机流量并入</p></li><li><p><strong>安全管控</strong>：一阶段完成最基本安全管控能力，二阶段升级到完全形态</p></li></ul></li><li><p><strong>稳定性保障（技术难点）</strong>：</p><ul><li><p>从7个维度保障主流程稳定性</p></li><li><p>城市+司机白名单灰度方案，综合技术数据、业务数据、客服回访确认功能有效</p></li><li><p>制定降级回滚方案，并明确可使用的场景</p></li></ul></li></ul><p><strong>个人贡献</strong></p><ul><li><p>深度参与整体架构梳理，主导主业务流程全面梳理</p></li><li><p>主导撮合流程、费用流程、安全管控流程的平稳落地</p></li></ul><p><strong>项目成果</strong></p><ul><li><p>业务收益：业务迭代效率提升20%以上，融合过程在线业务无波动</p></li><li><p>技术收益：完成小猪自营司机司机技术融合，0 重大事故</p></li></ul>",
+      "visible": true
+    }
+  ],
+  "menuSections": [
+    {
+      "id": "basic",
+      "title": "基本信息",
+      "icon": "👤",
+      "enabled": true,
+      "order": 0
+    },
+    {
+      "id": "skills",
+      "title": "专业技能",
+      "icon": "⚡",
+      "enabled": true,
+      "order": 1
+    },
+    {
+      "id": "custom-1",
+      "title": "工作经验",
+      "icon": "➕",
+      "enabled": true,
+      "order": 2
+    },
+    {
+      "id": "education",
+      "title": "教育经历",
+      "icon": "🎓",
+      "enabled": true,
+      "order": 3
+    },
+    {
+      "id": "projects",
+      "title": "项目经历",
+      "icon": "🚀",
+      "enabled": true,
+      "order": 4
+    }
+  ],
+  "certificates": [],
+  "customData": {
+    "custom-1": [
+      {
+        "id": "1059c160-5766-40f4-9343-b8599b8d8357",
+        "title": "滴滴网约车",
+        "subtitle": "资深研发工程师",
+        "dateRange": "2019/10 - 至今",
+        "description": "<ul><li><p>网开台需求迭代、深度参与鸿鹄SaaS从0到1建设、主导SaaS司机架构升级</p></li></ul>",
+        "visible": true
+      },
+      {
+        "id": "6753b98a-b002-42ee-bc25-e89ec7f066dd",
+        "title": "滴滴顺风车",
+        "subtitle": "高级研发工程师",
+        "dateRange": "2018/05 - 2019/09",
+        "description": "",
+        "visible": true
+      },
+      {
+        "id": "2afa16c0-4566-4ce7-b726-9af54e73f30e",
+        "title": "百度外卖",
+        "subtitle": "高级研发工程师",
+        "dateRange": "2016/04 - 2018/04",
+        "description": "",
+        "visible": true
+      }
+    ]
+  },
+  "activeSection": "basic",
+  "globalSettings": {
+    "baseFontSize": 14,
+    "pagePadding": 32,
+    "paragraphSpacing": 8,
+    "lineHeight": 1.2,
+    "sectionSpacing": 18,
+    "headerSize": 16,
+    "subheaderSize": 16,
+    "useIconMode": true,
+    "themeColor": "#0047AB",
+    "centerSubtitle": true,
+    "flexibleHeaderLayout": false,
+    "fontFamily": "\"Alibaba PuHuiTi\", sans-serif"
+  },
+  "id": "ecd732a2-8eee-4c97-91ba-c02367270298",
+  "createdAt": "2026-07-11T00:40:57.215Z",
+  "updatedAt": "2026-07-11T11:13:27.688Z",
+  "templateId": "left-right"
+}
